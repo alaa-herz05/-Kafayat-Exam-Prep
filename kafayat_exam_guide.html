@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kafayat Exam — Complete Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Cairo:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #000000;
+  --dark1: #0a0a0a;
+  --dark2: #111111;
+  --dark3: #1a1a1a;
+  --dark4: #222222;
+  --red: #e5001a;
+  --red2: #ff1a35;
+  --red3: #ff4455;
+  --red-dim: rgba(229,0,26,.15);
+  --red-border: rgba(229,0,26,.35);
+  --red-glow: rgba(229,0,26,.08);
+  --gold: #d4a017;
+  --gold-dim: rgba(212,160,23,.12);
+  --text: #e8e8e8;
+  --muted: #888;
+  --muted2: #666;
+  --card: rgba(20,20,20,.95);
+  --border: rgba(229,0,26,.2);
+  --green: #00e87a;
+  --blue: #00aaff;
+  --purple: #c084fc;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Inter, sans-serif;
+  background: var(--black);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 14.5px;
+  cursor: default;
+}
+/* ---- SCANLINE OVERLAY ---- */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px);
+  pointer-events:none;
+  z-index:0;
+}
+/* ---- HERO ---- */
+.hero {
+  position: relative;
+  background: var(--dark1);
+  padding: 80px 40px 60px;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--red);
+}
+.hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(229,0,26,.18), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 100%, rgba(229,0,26,.08), transparent 60%);
+  pointer-events:none;
+}
+.hero-badge {
+  display:inline-block;
+  font-family: Orbitron, sans-serif;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--red);
+  border:1px solid var(--red);
+  padding:6px 22px;
+  border-radius:2px;
+  margin-bottom:24px;
+  position:relative;
+  background: var(--red-dim);
+}
+.hero h1 {
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+  position:relative;
+  text-shadow: 0 0 40px rgba(229,0,26,.4);
+}
+.hero h1 span { color: var(--red); }
+.hero .ar-sub {
+  font-family: Cairo, sans-serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  direction:rtl;
+  margin-bottom: 20px;
+  position:relative;
+}
+.hero p { color:var(--muted); font-size:13px; max-width:600px; margin:0 auto; position:relative; }
+.hero-stats {
+  display:flex;
+  justify-content:center;
+  gap:32px;
+  margin-top:36px;
+  flex-wrap:wrap;
+  position:relative;
+}
+.hero-stat {
+  text-align:center;
+  background:var(--red-dim);
+  border:1px solid var(--red-border);
+  border-radius:4px;
+  padding:14px 28px;
+  min-width:120px;
+}
+.hero-stat .val {
+  font-family:Orbitron,sans-serif;
+  font-size:1.8rem;
+  font-weight:900;
+  color:var(--red);
+  display:block;
+  text-shadow: 0 0 20px rgba(229,0,26,.5);
+}
+.hero-stat .lbl { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
+
+/* ---- NAV ---- */
+.sticky-nav {
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:rgba(0,0,0,.97);
+  border-bottom:1px solid var(--red-border);
+  padding:10px 20px;
+  display:flex;
+  gap:6px;
+  justify-content:center;
+  flex-wrap:wrap;
+  backdrop-filter:blur(12px);
+}
+.sticky-nav a {
+  text-decoration:none;
+  color:var(--muted);
+  font-family:Orbitron,sans-serif;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  border:1px solid rgba(229,0,26,.25);
+  background:rgba(229,0,26,.04);
+  padding:7px 14px;
+  border-radius:2px;
+  transition:.2s;
+}
+.sticky-nav a:hover {
+  color:#fff;
+  background:var(--red);
+  border-color:var(--red);
+  box-shadow: 0 0 16px rgba(229,0,26,.4);
+}
+
+/* ---- DISTRIBUTION BAR ---- */
+.dist-section {
+  max-width:900px;
+  margin:40px auto 0;
+  padding:0 24px;
+}
+.dist-card {
+  background:var(--dark2);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:28px;
+  margin-bottom:16px;
+}
+.dist-title {
+  font-family:Orbitron,sans-serif;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--red);
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+.progress-bar { background:var(--dark4); border-radius:2px; height:10px; margin-bottom:8px; overflow:hidden; }
+.progress-fill {
+  height:100%;
+  border-radius:2px;
+  background:linear-gradient(90deg, var(--red), var(--red2));
+  box-shadow: 0 0 10px rgba(229,0,26,.5);
+  animation: fillAnim 1.2s ease-out forwards;
+  transform-origin:left;
+}
+@keyframes fillAnim { from { width:0 } }
+.progress-fill.blue { background:linear-gradient(90deg,#0066cc,#00aaff); box-shadow:0 0 10px rgba(0,170,255,.4); }
+.dist-pct { font-family:Orbitron,sans-serif; font-size:1.5rem; font-weight:900; color:var(--red); }
+.dist-pct.blue { color:var(--blue); }
+.dist-topics { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+.topic-tag {
+  font-size:11px;
+  font-weight:700;
+  padding:3px 12px;
+  border-radius:2px;
+  border:1px solid var(--red-border);
+  color:var(--red3);
+  background:var(--red-dim);
+  font-family:Inter,sans-serif;
+}
+.topic-tag.b { border-color:rgba(0,170,255,.3); color:var(--blue); background:rgba(0,170,255,.07); }
+
+/* ---- MAIN CONTAINER ---- */
+.container { max-width:980px; margin:0 auto; padding:40px 24px 100px; position:relative; z-index:1; }
+
+/* ---- SECTION HEADER ---- */
+.sec-header {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin:60px 0 24px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--border);
+}
+.sec-icon {
+  width:52px; height:52px;
+  background:var(--red);
+  border-radius:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Orbitron,sans-serif;
+  font-weight:900;
+  font-size:16px;
+  color:#fff;
+  flex-shrink:0;
+  box-shadow: 0 0 20px rgba(229,0,26,.4);
+}
+.sec-info h2 {
+  font-family:Orbitron,sans-serif;
+  font-size:1.25rem;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:.5px;
+}
+.sec-info .ar {
+  font-family:Cairo,sans-serif;
+  font-size:.9rem;
+  color:var(--gold);
+  direction:rtl;
+  text-align:right;
+  margin-top:2px;
+}
+.sec-info .desc { font-size:12px; color:var(--muted); margin-top:3px; }
+
+/* ---- CARD ---- */
+.card {
+  background:var(--dark2);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:22px 26px;
+  margin-bottom:14px;
+  transition:border-color .25s, box-shadow .25s, transform .2s;
+  position:relative;
+  overflow:hidden;
+}
+.card::before {
+  content:'';
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:3px;
+  background:var(--red);
+  opacity:0;
+  transition:.25s;
+}
+.card:hover {
+  border-color:var(--red);
+  box-shadow:0 0 24px rgba(229,0,26,.12), inset 0 0 40px rgba(229,0,26,.03);
+  transform:translateX(4px);
+}
+.card:hover::before { opacity:1; }
+.card-title {
+  font-family:Orbitron,sans-serif;
+  font-size:.75rem;
+  font-weight:700;
+  color:var(--red);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.card-title .ar {
+  font-family:Cairo,sans-serif;
+  font-size:.85rem;
+  color:var(--gold);
+  font-weight:600;
+  direction:rtl;
+  text-transform:none;
+  letter-spacing:0;
+}
+.card p { margin-bottom:6px; color:var(--text); }
+.card li { margin-bottom:5px; }
+.card ul,.card ol { padding-left:20px; }
+b,strong { color:#fff; }
+
+/* ---- CODE BLOCK ---- */
+.code {
+  background:#0a0a0a;
+  border:1px solid rgba(229,0,26,.2);
+  border-radius:4px;
+  padding:14px 18px;
+  margin:10px 0;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;
+  color:#f8c8c8;
+  direction:ltr;
+  overflow-x:auto;
+  white-space:pre;
+  line-height:1.8;
+}
+.code .kw { color:var(--red2); font-weight:700; }
+.code .fn { color:#ffaa44; }
+.code .str { color:#88dd88; }
+.code .cm { color:var(--muted2); font-style:italic; }
+.code .num { color:#88aaff; }
+.code .cl { color:var(--purple); }
+.code-label {
+  font-size:9px;
+  font-weight:700;
+  color:var(--red);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:6px;
+  font-family:Orbitron,sans-serif;
+}
+
+/* ---- ARABIC BOX ---- */
+.ar-box {
+  background:rgba(212,160,23,.05);
+  border:1px solid rgba(212,160,23,.22);
+  border-right:4px solid var(--gold);
+  border-radius:0 6px 6px 0;
+  padding:14px 16px;
+  margin-top:12px;
+  direction:rtl;
+  text-align:right;
+  font-family:Cairo,sans-serif;
+  font-size:13.5px;
+  color:#d4c8a8;
+  line-height:2;
+}
+.ar-label {
+  font-size:9px;
+  font-weight:700;
+  color:var(--gold);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:6px;
+  direction:ltr;
+  text-align:left;
+  font-family:Orbitron,sans-serif;
+}
+
+/* ---- HIGHLIGHT / NOTE ---- */
+.hl {
+  background:rgba(229,0,26,.06);
+  border-left:3px solid var(--red);
+  border-radius:0 4px 4px 0;
+  padding:12px 16px;
+  margin:10px 0;
+  font-size:13.5px;
+}
+.note {
+  background:rgba(0,170,255,.06);
+  border:1px solid rgba(0,170,255,.25);
+  border-radius:4px;
+  padding:12px 16px;
+  margin:10px 0;
+  font-size:13.5px;
+}
+.note-lbl {
+  font-size:9px;
+  font-weight:700;
+  color:var(--blue);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:5px;
+  font-family:Orbitron,sans-serif;
+}
+
+/* ---- TABLE ---- */
+.tw { overflow-x:auto; margin:12px 0; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+thead th {
+  background:#1a0508;
+  color:var(--red);
+  padding:10px 14px;
+  text-align:left;
+  font-weight:700;
+  font-size:11px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-family:Orbitron,sans-serif;
+  white-space:nowrap;
+}
+tbody tr { border-bottom:1px solid rgba(229,0,26,.08); }
+tbody tr:hover { background:var(--red-glow); }
+tbody td { padding:9px 14px; vertical-align:top; }
+tbody td:first-child { font-weight:700; color:var(--gold); white-space:nowrap; }
+
+/* ---- GRID ---- */
+.g2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+@media(max-width:640px){ .g2,.g3{ grid-template-columns:1fr } .hero h1{ font-size:1.8rem } .container{padding:28px 14px 80px} .card{padding:16px} .sec-header{flex-direction:column;align-items:flex-start} }
+
+/* ---- TAG ---- */
+.tag {
+  display:inline-block;
+  border:1px solid var(--red-border);
+  color:var(--red3);
+  background:var(--red-dim);
+  border-radius:2px;
+  padding:2px 10px;
+  font-size:11px;
+  font-weight:700;
+  margin:2px;
+  font-family:Inter,sans-serif;
+}
+.tag.g { border-color:rgba(0,232,122,.3); color:var(--green); background:rgba(0,232,122,.07); }
+.tag.b { border-color:rgba(0,170,255,.3); color:var(--blue); background:rgba(0,170,255,.07); }
+.tag.p { border-color:rgba(192,132,252,.3); color:var(--purple); background:rgba(192,132,252,.07); }
+.tag.y { border-color:rgba(212,160,23,.3); color:var(--gold); background:var(--gold-dim); }
+
+/* ---- FLOW ---- */
+.flow { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:0; margin:14px 0; overflow-x:auto; }
+.fbox {
+  background:var(--dark3);
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:8px 14px;
+  font-size:12px;
+  font-weight:700;
+  text-align:center;
+  white-space:nowrap;
+}
+.fbox.r { border-color:var(--red); color:var(--red); background:var(--red-dim); }
+.fbox.g { border-color:rgba(0,232,122,.4); color:var(--green); background:rgba(0,232,122,.07); }
+.fbox.b { border-color:rgba(0,170,255,.4); color:var(--blue); background:rgba(0,170,255,.07); }
+.fbox.p { border-color:rgba(192,132,252,.4); color:var(--purple); background:rgba(192,132,252,.07); }
+.arrow { color:var(--red); font-size:18px; padding:0 8px; }
+
+/* ---- EXAM Q ---- */
+.exam-q {
+  border-left:3px solid var(--purple);
+  background:rgba(192,132,252,.05);
+  border-radius:0 4px 4px 0;
+  padding:13px 16px;
+  margin:10px 0;
+  font-size:13.5px;
+}
+.q-lbl {
+  font-size:9px;
+  font-weight:700;
+  color:var(--purple);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:5px;
+  font-family:Orbitron,sans-serif;
+}
+.ans { color:var(--green); font-weight:700; }
+
+/* ---- DIVIDER ---- */
+hr.div {
+  border:none;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--red),transparent);
+  opacity:.3;
+  margin:52px 0;
+}
+
+/* ---- FINAL REVIEW ---- */
+.final {
+  background:linear-gradient(135deg,rgba(229,0,26,.07),rgba(0,0,0,.9));
+  border:1px solid var(--red);
+  border-radius:6px;
+  padding:32px;
+  margin-top:52px;
+  box-shadow: 0 0 40px rgba(229,0,26,.08);
+}
+.final h2 {
+  font-family:Orbitron,sans-serif;
+  font-size:1rem;
+  font-weight:700;
+  color:var(--red);
+  margin-bottom:20px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.final h2 .ar {
+  font-family:Cairo,sans-serif;
+  font-size:.9rem;
+  color:var(--gold);
+  font-weight:600;
+  direction:rtl;
+  display:block;
+  margin-top:4px;
+  text-transform:none;
+  letter-spacing:0;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width:6px; height:6px; }
+::-webkit-scrollbar-track { background:var(--dark1); }
+::-webkit-scrollbar-thumb { background:var(--red); border-radius:3px; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ HERO ════════════════ -->
+<div class="hero">
+  <div class="hero-badge">اختبار الكفايات &mdash; Complete Study Guide 2025</div>
+  <h1>Kafayat <span>Exam</span> Guide</h1>
+  <div class="ar-sub">دليل الدراسة الشامل لاختبار الكفايات &mdash; التقنية والسلوكية</div>
+  <p>Full bilingual coverage &middot; Technical 70% + Behavioral 30% &middot; SQL · Networks · Security · PHP · C# · Software Engineering</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="val">70%</span>
+      <span class="lbl">Technical</span>
+    </div>
+    <div class="hero-stat">
+      <span class="val">30%</span>
+      <span class="lbl">Behavioral</span>
+    </div>
+    <div class="hero-stat">
+      <span class="val">7</span>
+      <span class="lbl">Sections</span>
+    </div>
+    <div class="hero-stat">
+      <span class="val">EN+AR</span>
+      <span class="lbl">Bilingual</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ NAV ════════════════ -->
+<nav class="sticky-nav">
+  <a href="#dist">Distribution</a>
+  <a href="#sql">SQL</a>
+  <a href="#networks">Networks</a>
+  <a href="#security">Security</a>
+  <a href="#php">PHP</a>
+  <a href="#csharp">C#</a>
+  <a href="#swe">Software Eng</a>
+  <a href="#abilities">Abilities</a>
+  <a href="#review">Review</a>
+</nav>
+
+<!-- ════════════════ DISTRIBUTION ════════════════ -->
+<div class="dist-section" id="dist">
+  <div style="margin:40px 0 20px;text-align:center">
+    <div style="font-family:Orbitron,sans-serif;font-size:.75rem;letter-spacing:3px;color:var(--red);text-transform:uppercase">Exam Distribution &mdash; توزيع الاختبار</div>
+  </div>
+  <div class="dist-card">
+    <div class="dist-title">Technical Competencies &mdash; الكفايات الفنية</div>
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:10px">
+      <div style="flex:1">
+        <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+      </div>
+      <div class="dist-pct">70%</div>
+    </div>
+    <div class="dist-topics">
+      <span class="topic-tag">Software Engineering</span>
+      <span class="topic-tag">SQL Server &amp; Databases</span>
+      <span class="topic-tag">Networks</span>
+      <span class="topic-tag">Information Security</span>
+      <span class="topic-tag">C# Programming</span>
+      <span class="topic-tag">PHP</span>
+      <span class="topic-tag">ASP.NET</span>
+    </div>
+    <div class="ar-box" style="margin-top:14px"><div class="ar-label">Arabic</div>الكفايات الفنية تمثل 70% من الدرجة. تشمل: هندسة البرمجيات، قواعد البيانات SQL، الشبكات، أمن المعلومات، البرمجة بـ C# أو PHP.</div>
+  </div>
+  <div class="dist-card">
+    <div class="dist-title" style="color:var(--blue)">Behavioral, Language &amp; Cognitive Abilities &mdash; الكفايات السلوكية واللغوية</div>
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:10px">
+      <div style="flex:1">
+        <div class="progress-bar"><div class="progress-fill blue" style="width:30%"></div></div>
+      </div>
+      <div class="dist-pct blue">30%</div>
+    </div>
+    <div class="dist-topics">
+      <span class="topic-tag b">Logical Thinking</span>
+      <span class="topic-tag b">Math</span>
+      <span class="topic-tag b">Arabic Skills</span>
+      <span class="topic-tag b">English Skills</span>
+      <span class="topic-tag b">Analytical Reasoning</span>
+      <span class="topic-tag b">Problem Solving</span>
+    </div>
+    <div class="ar-box" style="margin-top:14px"><div class="ar-label">Arabic</div>الكفايات السلوكية والقدرات العقلية تمثل 30% من الدرجة. تشمل: التفكير المنطقي، الرياضيات، مهارات اللغة العربية والإنجليزية، وحل المشكلات.</div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ══════════════════════════════════════ SQL ══════════════════ -->
+<div class="sec-header" id="sql">
+  <div class="sec-icon">SQL</div>
+  <div class="sec-info">
+    <h2>SQL &amp; Databases</h2>
+    <div class="ar">قواعد البيانات و SQL</div>
+    <div class="desc">Queries · Joins · Normalization · Stored Procedures · Keys</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">Basic SQL Statements &mdash; الأوامر الأساسية</div>
+  <div class="tw"><table>
+    <thead><tr><th>Command</th><th>Purpose</th><th>بالعربي</th></tr></thead>
+    <tbody>
+      <tr><td>SELECT</td><td>Retrieve data from one or more tables</td><td>استرجاع البيانات</td></tr>
+      <tr><td>WHERE</td><td>Filter rows based on a condition</td><td>تصفية الصفوف بشرط</td></tr>
+      <tr><td>ORDER BY</td><td>Sort results ASC or DESC</td><td>ترتيب النتائج تصاعدياً أو تنازلياً</td></tr>
+      <tr><td>GROUP BY</td><td>Group rows sharing a value for aggregation</td><td>تجميع الصفوف لحسابات إجمالية</td></tr>
+      <tr><td>HAVING</td><td>Filter groups (used after GROUP BY, like WHERE for groups)</td><td>تصفية المجموعات بعد GROUP BY</td></tr>
+      <tr><td>INSERT</td><td>Add new rows to a table</td><td>إضافة سجلات جديدة</td></tr>
+      <tr><td>UPDATE</td><td>Modify existing rows</td><td>تعديل سجلات موجودة</td></tr>
+      <tr><td>DELETE</td><td>Remove rows from a table</td><td>حذف سجلات</td></tr>
+    </tbody>
+  </table></div>
+  <div class="code-label">SQL Examples</div>
+  <div class="code"><span class="kw">SELECT</span> Name, Salary <span class="kw">FROM</span> Employees <span class="kw">WHERE</span> Salary > <span class="num">5000</span> <span class="kw">ORDER BY</span> Salary <span class="kw">DESC</span>;
+
+<span class="kw">SELECT</span> Dept, <span class="fn">COUNT</span>(*) <span class="kw">AS</span> Total <span class="kw">FROM</span> Employees <span class="kw">GROUP BY</span> Dept <span class="kw">HAVING COUNT</span>(*) > <span class="num">3</span>;
+
+<span class="kw">INSERT INTO</span> Employees (Name, Salary) <span class="kw">VALUES</span> (<span class="str">'Ali'</span>, <span class="num">7000</span>);
+<span class="kw">UPDATE</span> Employees <span class="kw">SET</span> Salary = <span class="num">8000</span> <span class="kw">WHERE</span> ID = <span class="num">5</span>;
+<span class="kw">DELETE FROM</span> Employees <span class="kw">WHERE</span> ID = <span class="num">5</span>;</div>
+  <div class="ar-box"><div class="ar-label">Arabic</div>
+    <strong>SELECT</strong>: جلب البيانات من الجدول. <strong>WHERE</strong>: تصفية النتائج بشرط معين. <strong>ORDER BY</strong>: ترتيب النتائج. <strong>GROUP BY</strong>: تجميع الصفوف لعمليات مثل COUNT وSUM. <strong>HAVING</strong>: شرط بعد التجميع (مثل WHERE لكن للمجموعات). <strong>INSERT</strong>: إضافة سجل. <strong>UPDATE</strong>: تعديل سجل. <strong>DELETE</strong>: حذف سجل.
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">SQL JOINs &mdash; الربط بين الجداول</div>
+  <p>JOINs combine rows from two or more tables based on a related column.</p>
+  <div class="tw"><table>
+    <thead><tr><th>JOIN Type</th><th>Returns</th><th>بالعربي</th></tr></thead>
+    <tbody>
+      <tr><td>INNER JOIN</td><td>Only matching rows in BOTH tables</td><td>الصفوف المتطابقة فقط في الجدولين</td></tr>
+      <tr><td>LEFT JOIN</td><td>ALL rows from left table + matching from right (NULL if no match)</td><td>كل صفوف الجدول الأيسر + المطابق من الأيمن</td></tr>
+      <tr><td>RIGHT JOIN</td><td>ALL rows from right table + matching from left</td><td>كل صفوف الجدول الأيمن + المطابق من الأيسر</td></tr>
+      <tr><td>FULL JOIN</td><td>All rows from both tables</td><td>كل صفوف الجدولين</td></tr>
+    </tbody>
+  </table></div>
+  <div class="code"><span class="cm">-- INNER JOIN: only customers who placed orders</span>
+<span class="kw">SELECT</span> C.Name, O.OrderDate
+<span class="kw">FROM</span> Customers C
+<span class="kw">INNER JOIN</span> Orders O <span class="kw">ON</span> C.ID = O.CustomerID;
+
+<span class="cm">-- LEFT JOIN: all customers, with order if exists</span>
+<span class="kw">SELECT</span> C.Name, O.OrderDate
+<span class="kw">FROM</span> Customers C
+<span class="kw">LEFT JOIN</span> Orders O <span class="kw">ON</span> C.ID = O.CustomerID;</div>
+  <div class="ar-box"><div class="ar-label">Arabic</div><strong>INNER JOIN</strong>: يجلب فقط الصفوف التي لها تطابق في كلا الجدولين. <strong>LEFT JOIN</strong>: يجلب كل صفوف الجدول الأيسر حتى لو لم يكن لها تطابق في الأيمن (يظهر NULL). <strong>RIGHT JOIN</strong>: عكس LEFT JOIN. القاعدة: دائماً JOIN يحتاج ON لتحديد عمود الربط.</div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">Primary Key &amp; Foreign Key <span class="ar">المفاتيح</span></div>
+    <p><strong>Primary Key (PK):</strong> Uniquely identifies each row in a table. Cannot be NULL. Only one per table.</p>
+    <p><strong>Foreign Key (FK):</strong> A column that references the Primary Key of another table. Creates a relationship between tables.</p>
+    <div class="code"><span class="kw">CREATE TABLE</span> Orders (
+  OrderID  <span class="fn">INT</span> <span class="kw">PRIMARY KEY</span>,
+  CustID   <span class="fn">INT</span> <span class="kw">FOREIGN KEY REFERENCES</span> Customers(ID)
+);</div>
+    <div class="ar-box"><div class="ar-label">Arabic</div><strong>Primary Key</strong>: مفتاح أساسي يحدد كل سجل بشكل فريد — لا يتكرر ولا يكون فارغاً. <strong>Foreign Key</strong>: مفتاح أجنبي يربط جدولين معاً عن طريق الإشارة لـ PK جدول آخر.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Normalization &mdash; التطبيع</div>
+    <p>Normalization organizes a database to reduce redundancy and improve integrity.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Form</th><th>Rule</th></tr></thead>
+      <tbody>
+        <tr><td>1NF</td><td>No repeating groups; each cell has one value; has PK</td></tr>
+        <tr><td>2NF</td><td>1NF + no partial dependency on composite PK</td></tr>
+        <tr><td>3NF</td><td>2NF + no transitive dependency (non-key → non-key)</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ar-box"><div class="ar-label">Arabic</div>التطبيع هو تنظيم الجداول لتقليل التكرار. <strong>1NF</strong>: لا تكرار وكل خلية قيمة واحدة. <strong>2NF</strong>: لا اعتماد جزئي على المفتاح. <strong>3NF</strong>: لا اعتماد عبوري (قيمة تعتمد على قيمة غير مفتاح).</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">Stored Procedures &mdash; الإجراءات المخزنة</div>
+  <p>A <strong>Stored Procedure</strong> is a precompiled set of SQL statements stored in the database. Faster than raw queries, reusable, and can accept parameters.</p>
+  <div class="code"><span class="kw">CREATE PROCEDURE</span> <span class="fn">GetEmployee</span> @EmpID <span class="fn">INT</span>
+<span class="kw">AS</span>
+<span class="kw">BEGIN</span>
+  <span class="kw">SELECT</span> * <span class="kw">FROM</span> Employees <span class="kw">WHERE</span> ID = @EmpID;
+<span class="kw">END</span>;
+
+<span class="cm">-- Execute the procedure:</span>
+<span class="kw">EXEC</span> <span class="fn">GetEmployee</span> @EmpID = <span class="num">5</span>;</div>
+  <div class="ar-box"><div class="ar-label">Arabic</div>الـ Stored Procedure هو مجموعة أوامر SQL محفوظة في قاعدة البيانات وتُنفَّذ بأمر واحد. مميزاتها: أسرع (precompiled)، قابلة لإعادة الاستخدام، وتقبل معاملات (Parameters). تُستخدم كثيراً للعمليات المتكررة مثل استرجاع بيانات موظف بـ ID معين.</div>
+</div>
+
+<hr class="div">
+
+<!-- ══════════════════════════════════════ NETWORKS ══════════════ -->
+<div class="sec-header" id="networks">
+  <div class="sec-icon">NET</div>
+  <div class="sec-info">
+    <h2>Networks &amp; TCP/IP</h2>
+    <div class="ar">الشبكات ونماذج الاتصال</div>
+    <div class="desc">OSI Model · TCP vs UDP · IP · DNS · HTTP/HTTPS · Ports · LAN/WAN</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">OSI Model &mdash; The 7 Layers &mdash; النموذج المرجعي</div>
+  <div class="tw"><table>
+    <thead><tr><th>#</th><th>Layer</th><th>Unit</th><th>Key Function</th><th>Examples</th><th>بالعربي</th></tr></thead>
+    <tbody>
+      <tr><td>7</td><td><strong>Application</strong></td><td>Data</td><td>User interface &amp; network services</td><td>HTTP, FTP, DNS, SMTP</td><td>واجهة المستخدم والتطبيقات</td></tr>
+      <tr><td>6</td><td><strong>Presentation</strong></td><td>Data</td><td>Data format, encryption, compression</td><td>SSL/TLS, JPEG, ASCII</td><td>التشفير والترجمة والضغط</td></tr>
+      <tr><td>5</td><td><strong>Session</strong></td><td>Data</td><td>Manage sessions &amp; dialog control</td><td>NetBIOS, RPC</td><td>إدارة الجلسات</td></tr>
+      <tr><td>4</td><td><strong>Transport</strong></td><td>Segment</td><td>End-to-end delivery, TCP/UDP</td><td>TCP, UDP</td><td>نقل البيانات من طرف لطرف</td></tr>
+      <tr><td>3</td><td><strong>Network</strong></td><td>Packet</td><td>Logical addressing &amp; routing</td><td>IP, ICMP, Router</td><td>العناوين المنطقية والتوجيه</td></tr>
+      <tr><td>2</td><td><strong>Data Link</strong></td><td>Frame</td><td>Physical addressing, error detection</td><td>MAC, Switch, Ethernet</td><td>العناوين الفيزيائية وكشف الخطأ</td></tr>
+      <tr><td>1</td><td><strong>Physical</strong></td><td>Bit</td><td>Raw bit transmission over medium</td><td>Cables, Hub, Wi-Fi</td><td>إرسال البتات فيزيائياً</td></tr>
+    </tbody>
+  </table></div>
+  <div class="hl">&#x1F4A1; <strong>Mnemonic (top to bottom):</strong> <em>All People Seem To Need Data Processing</em> &mdash; Application, Presentation, Session, Transport, Network, Data Link, Physical</div>
+  <div class="ar-box"><div class="ar-label">Arabic</div>نموذج OSI يقسم الاتصال لـ 7 طبقات. كل طبقة لها مهمة محددة. الطبقة 7 هي الأقرب للمستخدم والطبقة 1 هي الأقرب للوسط الفيزيائي. للحفظ: تذكر كل طبقة بـ "ماذا تفعل" — Physical (بتات)، DataLink (إطارات+MAC)، Network (حزم+IP)، Transport (TCP/UDP)، Session (جلسات)، Presentation (تشفير)، Application (تطبيقات).</div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">TCP vs UDP &mdash; الفرق الجوهري</div>
+    <div class="tw"><table>
+      <thead><tr><th>Feature</th><th>TCP</th><th>UDP</th></tr></thead>
+      <tbody>
+        <tr><td>Connection</td><td style="color:var(--green)">Connection-oriented</td><td style="color:var(--red3)">Connectionless</td></tr>
+        <tr><td>Reliability</td><td style="color:var(--green)">Reliable (ACK)</td><td style="color:var(--red3)">Unreliable</td></tr>
+        <tr><td>Speed</td><td style="color:var(--gold)">Slower</td><td style="color:var(--green)">Faster</td></tr>
+        <tr><td>Order</td><td style="color:var(--green)">Guaranteed</td><td style="color:var(--red3)">Not guaranteed</td></tr>
+        <tr><td>Use</td><td>HTTP, Email, FTP</td><td>Video, DNS, VoIP</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ar-box"><div class="ar-label">Arabic</div><strong>TCP</strong>: موثوق، يتأكد من استلام البيانات (ACK)، يُستخدم حين الدقة مهمة. <strong>UDP</strong>: سريع لكن لا ضمان، يُستخدم في البث المباشر والألعاب والـ DNS.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Common Ports &mdash; المنافذ الشائعة</div>
+    <div class="tw"><table>
+      <thead><tr><th>Port</th><th>Protocol</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td>80</td><td>HTTP</td><td>Web browsing</td></tr>
+        <tr><td>443</td><td>HTTPS</td><td>Secure web</td></tr>
+        <tr><td>21</td><td>FTP</td><td>File transfer</td></tr>
+        <tr><td>22</td><td>SSH</td><td>Secure shell</td></tr>
+        <tr><td>25</td><td>SMTP</td><td>Send email</td></tr>
+        <tr><td>53</td><td>DNS</td><td>Name resolution</td></tr>
+        <tr><td>3306</td><td>MySQL</td><td>Database</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ar-box"><div class="ar-label">Arabic</div>أرقام المنافذ تحدد الخدمة على الجهاز. HTTP=80، HTTPS=443، FTP=21، SSH=22، SMTP=25، DNS=53. حفظها ضروري للامتحان.</div>
+  </div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">IP Address &amp; DNS <span class="ar">العنونة وترجمة الأسماء</span></div>
+    <p><strong>IP Address:</strong> 32-bit (IPv4) unique identifier for a device on a network. Written as 4 octets: <code style="color:var(--red3)">192.168.1.1</code></p>
+    <p><strong>DNS (Domain Name System):</strong> Translates human-readable domain names (google.com) into IP addresses (142.250.185.78). Like a phone book for the internet.</p>
+    <div class="ar-box"><div class="ar-label">Arabic</div><strong>IP Address</strong>: عنوان فريد لكل جهاز على الشبكة. مكون من 4 أرقام (0-255) مفصولة بنقاط. <strong>DNS</strong>: نظام يترجم اسم الموقع (مثل google.com) إلى عنوان IP — مثل دليل الهاتف للإنترنت.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">HTTP vs HTTPS &amp; LAN/WAN <span class="ar">البروتوكولات والشبكات</span></div>
+    <p><strong>HTTP:</strong> Transfers web pages. Data sent in plain text — not secure.</p>
+    <p><strong>HTTPS:</strong> HTTP + TLS encryption. Data is encrypted — secure. Uses port 443.</p>
+    <p><strong>LAN:</strong> Local Area Network — limited area (home, office). Fast, private.</p>
+    <p><strong>WAN:</strong> Wide Area Network — large geographic area (Internet is the biggest WAN).</p>
+    <div class="ar-box"><div class="ar-label">Arabic</div><strong>HTTP</strong>: بيانات مكشوفة (غير آمن). <strong>HTTPS</strong>: مشفر بـ TLS (آمن، المنفذ 443). <strong>LAN</strong>: شبكة محلية (منزل، مكتب). <strong>WAN</strong>: شبكة واسعة تمتد لمسافات كبيرة كالإنترنت.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">Router vs Switch &mdash; الفرق بين الأجهزة الشبكية</div>
+  <div class="tw"><table>
+    <thead><tr><th>Device</th><th>OSI Layer</th><th>Function</th><th>Addresses</th><th>بالعربي</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Hub</strong></td><td>Layer 1</td><td>Broadcasts all data to all ports</td><td>None</td><td>يرسل البيانات لكل الأجهزة</td></tr>
+      <tr><td><strong>Switch</strong></td><td>Layer 2</td><td>Sends frames to the correct device only using MAC</td><td>MAC Address</td><td>يوجه البيانات للجهاز الصحيح بالـ MAC</td></tr>
+      <tr><td><strong>Router</strong></td><td>Layer 3</td><td>Routes packets between different networks using IP</td><td>IP Address</td><td>يوجه الحزم بين الشبكات المختلفة بالـ IP</td></tr>
+    </tbody>
+  </table></div>
+  <div class="ar-box"><div class="ar-label">Arabic</div><strong>Hub</strong>: يرسل البيانات لكل الأجهزة بدون تمييز (قديم). <strong>Switch</strong>: أذكى من الـ Hub، يعرف MAC كل جهاز ويرسل البيانات للجهاز الصحيح فقط. <strong>Router</strong>: يربط شبكات مختلفة ببعض ويعرف أفضل مسار لإرسال البيانات عبر الإنترنت.</div>
+</div>
+
+<hr class="div">
+
+<!-- ══════════════════════════════════════ SECURITY ══════════════ -->
+<div class="sec-header" id="security">
+  <div class="sec-icon" style="background:var(--dark3);border:1px solid var(--red);color:var(--red)">&#x1F512;</div>
+  <div class="sec-info">
+    <h2>Information Security</h2>
+    <div class="ar">أمن المعلومات</div>
+    <div class="desc">Authentication · Encryption · SQL Injection · XSS · Firewall · Malware</div>
+  </div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">Authentication vs Authorization <span class="ar">التحقق والصلاحية</span></div>
+    <p><strong>Authentication:</strong> Verifying <em>who you are</em>. (Username + Password, fingerprint, OTP)</p>
+    <p><strong>Authorization:</strong> Determining <em>what you can do</em> after authentication. (Admin can delete, user can only read)</p>
+    <div class="hl">&#128273; Auth<strong>entic</strong>ation = Identity &nbsp;&nbsp;|&nbsp;&nbsp; Auth<strong>or</strong>ization = Permissions</div>
+    <div class="ar-box"><div class="ar-label">Arabic</div><strong>Authentication (التحقق)</strong>: من أنت؟ مثل إدخال كلمة المرور. <strong>Authorization (التفويض)</strong>: ماذا يحق لك أن تفعل؟ مثلاً المدير يستطيع الحذف، المستخدم العادي يقرأ فقط. التحقق يأتي أولاً دائماً.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Encryption vs Hashing <span class="ar">التشفير والتجزئة</span></div>
+    <p><strong>Encryption:</strong> Converts data to unreadable form using a key. <em>Reversible</em> — can decrypt with the right key. (AES, RSA)</p>
+    <p><strong>Hashing:</strong> Converts data to a fixed-size digest. <em>One-way</em> — cannot reverse. Used for passwords. (MD5, SHA-256, bcrypt)</p>
+    <div class="ar-box"><div class="ar-label">Arabic</div><strong>Encryption (التشفير)</strong>: يحول البيانات لشكل مشفر يمكن فك تشفيره بالمفتاح. <strong>Hashing (التجزئة)</strong>: يحول البيانات لرمز ثابت لا يمكن عكسه. نستخدمه لتخزين كلمات المرور — حتى لو سُرقت قاعدة البيانات، كلمات المرور غير مكشوفة.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">Common Attacks &mdash; الهجمات الشائعة</div>
+  <div class="tw"><table>
+    <thead><tr><th>Attack</th><th>What It Does</th><th>Prevention</th><th>بالعربي</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="color:var(--red3)">SQL Injection</strong></td><td>Attacker injects malicious SQL into input fields to manipulate the database</td><td>Use parameterized queries / prepared statements</td><td>حقن كود SQL خبيث عبر حقول الإدخال</td></tr>
+      <tr><td><strong style="color:var(--red3)">XSS</strong></td><td>Cross-Site Scripting: inject malicious JavaScript into web pages viewed by users</td><td>Sanitize/escape all user input; Content Security Policy</td><td>حقن JavaScript خبيث في صفحات الموقع</td></tr>
+      <tr><td><strong style="color:var(--red3)">Phishing</strong></td><td>Fake emails/sites trick users into revealing credentials</td><td>User education; email filters; MFA</td><td>مواقع وإيميلات مزيفة لسرقة بيانات المستخدم</td></tr>
+      <tr><td><strong style="color:var(--red3)">CSRF</strong></td><td>Forces authenticated user to perform unwanted actions</td><td>CSRF tokens; SameSite cookies</td><td>إجبار المستخدم على تنفيذ أوامر غير مقصودة</td></tr>
+    </tbody>
+  </table></div>
+  <div class="code-label">SQL Injection Example</div>
+  <div class="code"><span class="cm">-- Vulnerable query (NEVER do this):</span>
+<span class="str">"SELECT * FROM users WHERE name = '" + userInput + "'"</span>
+
+<span class="cm">-- If userInput = "'; DROP TABLE users; --"  → DISASTER!</span>
+
+<span class="cm">-- Safe: Parameterized Query</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> users <span class="kw">WHERE</span> name = <span class="num">@name</span>  <span class="cm">-- value passed separately</span></div>
+  <div class="ar-box"><div class="ar-label">Arabic</div><strong>SQL Injection</strong>: أخطر هجمة على قواعد البيانات. يدخل المهاجم كود SQL في حقل نصي ليتحكم بقاعدة البيانات. الحل: استخدام Parameterized Queries دائماً وليس بناء استعلام بدمج نص المستخدم مباشرة. <strong>XSS</strong>: يحقن JavaScript في الصفحة ليسرق جلسات المستخدمين. <strong>Phishing</strong>: تصيد احتيالي بمواقع مزيفة.</div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">Firewall &amp; Malware <span class="ar">جدار الحماية والبرمجيات الخبيثة</span></div>
+    <p><strong>Firewall:</strong> Monitors and controls network traffic based on rules. Blocks unauthorized access. Can be hardware or software.</p>
+    <p><strong>Malware:</strong> Malicious software. Types: <span class="tag r">Virus</span> <span class="tag r">Worm</span> <span class="tag r">Trojan</span> <span class="tag r">Ransomware</span> <span class="tag r">Spyware</span></p>
+    <div class="ar-box"><div class="ar-label">Arabic</div><strong>Firewall</strong>: جدار ناري يراقب حركة الشبكة ويمنع الوصول غير المصرح به. <strong>Malware</strong>: برمجيات خبيثة — Virus (يلصق بملفات)، Worm (ينتشر وحده)، Trojan (يتنكر كبرنامج مفيد)، Ransomware (يشفر ملفاتك ويطلب فدية).</div>
+  </div>
+  <div class="card">
+    <div class="card-title">CIA Triad &mdash; مثلث أمن المعلومات</div>
+    <div class="g3" style="margin-top:8px">
+      <div class="hl" style="text-align:center"><strong style="color:var(--red)">C</strong><br>Confidentiality<br><small style="color:var(--muted)">السرية</small></div>
+      <div class="hl" style="text-align:center"><strong style="color:var(--green)">I</strong><br>Integrity<br><small style="color:var(--muted)">النزاهة</small></div>
+      <div class="hl" style="text-align:center"><strong style="color:var(--blue)">A</strong><br>Availability<br><small style="color:var(--muted)">التوفر</small></div>
+    </div>
+    <div class="ar-box"><div class="ar-label">Arabic</div><strong>C &mdash; Confidentiality</strong>: البيانات لا يراها إلا المصرح لهم. <strong>I &mdash; Integrity</strong>: البيانات لم تتغير بدون إذن. <strong>A &mdash; Availability</strong>: الأنظمة متاحة للمصرح لهم وقت الحاجة.</div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- ══════════════════════════════════════ PHP ══════════════════ -->
+<div class="sec-header" id="php">
+  <div class="sec-icon" style="font-size:14px;background:linear-gradient(135deg,#777bb4,#4f5b93)">PHP</div>
+  <div class="sec-info">
+    <h2>PHP Basics</h2>
+    <div class="ar">أساسيات PHP</div>
+    <div class="desc">Variables · Forms · Sessions · Cookies · GET/POST · Database CRUD</div>
+  </div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">Variables &amp; echo <span class="ar">المتغيرات والطباعة</span></div>
+    <div class="code"><span class="cm">&lt;?php</span>
+<span class="kw">$name</span> = <span class="str">"Ali"</span>;        <span class="cm">// String</span>
+<span class="kw">$age</span>  = <span class="num">25</span>;           <span class="cm">// Integer</span>
+<span class="kw">$gpa</span>  = <span class="num">3.75</span>;         <span class="cm">// Float</span>
+<span class="kw">$isActive</span> = <span class="kw">true</span>;    <span class="cm">// Boolean</span>
+
+<span class="kw">echo</span> <span class="str">"Hello, $name!"</span>;  <span class="cm">// Output: Hello, Ali!</span>
+<span class="cm">?&gt;</span></div>
+    <div class="ar-box"><div class="ar-label">Arabic</div>في PHP كل متغير يبدأ بـ <strong>$</strong>. لا تحتاج لتحديد النوع مسبقاً. <strong>echo</strong> تطبع نصاً في الصفحة. يمكن وضع المتغير داخل علامات الاقتباس المزدوجة مباشرة.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">If Statement &amp; Loops <span class="ar">الشروط والحلقات</span></div>
+    <div class="code"><span class="cm">// If statement</span>
+<span class="kw">if</span> (<span class="kw">$age</span> >= <span class="num">18</span>) {
+  <span class="kw">echo</span> <span class="str">"Adult"</span>;
+} <span class="kw">elseif</span> (<span class="kw">$age</span> >= <span class="num">13</span>) {
+  <span class="kw">echo</span> <span class="str">"Teen"</span>;
+} <span class="kw">else</span> {
+  <span class="kw">echo</span> <span class="str">"Child"</span>;
+}
+
+<span class="cm">// For loop</span>
+<span class="kw">for</span> (<span class="kw">$i</span>=<span class="num">0</span>; <span class="kw">$i</span>&lt;<span class="num">5</span>; <span class="kw">$i</span>++) {
+  <span class="kw">echo</span> <span class="kw">$i</span> . <span class="str">" "</span>;
+}
+
+<span class="cm">// Foreach (arrays)</span>
+<span class="kw">$colors</span> = [<span class="str">"red"</span>, <span class="str">"blue"</span>, <span class="str">"green"</span>];
+<span class="kw">foreach</span> (<span class="kw">$colors</span> <span class="kw">as</span> <span class="kw">$c</span>) { <span class="kw">echo</span> <span class="kw">$c</span>; }</div>
+    <div class="ar-box"><div class="ar-label">Arabic</div>نفس مفهوم الشروط في أي لغة. <strong>for</strong>: حلقة بعدد محدد. <strong>while</strong>: طالما الشرط صحيح. <strong>foreach</strong>: للمرور على عناصر المصفوفة.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">GET vs POST &mdash; Sessions &amp; Cookies <span class="ar">إرسال البيانات والجلسات</span></div>
+  <div class="tw"><table>
+    <thead><tr><th>Feature</th><th>GET</th><th>POST</th></tr></thead>
+    <tbody>
+      <tr><td>Data location</td><td>URL query string (?name=ali)</td><td>Request body (hidden)</td></tr>
+      <tr><td>Security</td><td style="color:var(--red3)">Less secure (visible)</td><td style="color:var(--green)">More secure</td></tr>
+      <tr><td>Data limit</td><td>~2000 chars</td><td>No practical limit</td></tr>
+      <tr><td>Use case</td><td>Search, filters, bookmarkable URLs</td><td>Login, forms, file upload</td></tr>
+    </tbody>
+  </table></div>
+  <div class="code"><span class="cm">// GET: data in URL → ?id=5</span>
+<span class="kw">$id</span> = <span class="kw">$_GET</span>[<span class="str">'id'</span>];
+
+<span class="cm">// POST: data in body</span>
+<span class="kw">$user</span> = <span class="kw">$_POST</span>[<span class="str">'username'</span>];
+
+<span class="cm">// Sessions: server-side storage across pages</span>
+<span class="fn">session_start</span>();
+<span class="kw">$_SESSION</span>[<span class="str">'user'</span>] = <span class="str">"Ali"</span>;
+
+<span class="cm">// Cookies: client-side storage</span>
+<span class="fn">setcookie</span>(<span class="str">"theme"</span>, <span class="str">"dark"</span>, <span class="fn">time</span>()+<span class="num">86400</span>);
+<span class="kw">echo</span> <span class="kw">$_COOKIE</span>[<span class="str">'theme'</span>];</div>
+  <div class="ar-box"><div class="ar-label">Arabic</div><strong>GET</strong>: البيانات في الـ URL — مناسب للبحث، غير مناسب لكلمات المرور. <strong>POST</strong>: البيانات مخفية في الطلب — للفورمات الحساسة. <strong>Session</strong>: تخزن البيانات على السيرفر بين الصفحات (تنتهي عند إغلاق المتصفح). <strong>Cookie</strong>: تخزن على جهاز المستخدم ويمكن تحديد وقت انتهائها.</div>
+</div>
+
+<div class="card">
+  <div class="card-title">PHP Database Connection &amp; Basic CRUD <span class="ar">الاتصال بقاعدة البيانات</span></div>
+  <div class="code"><span class="cm">// Connect to MySQL database</span>
+<span class="kw">$conn</span> = <span class="kw">new</span> <span class="cl">mysqli</span>(<span class="str">"localhost"</span>, <span class="str">"root"</span>, <span class="str">""</span>, <span class="str">"mydb"</span>);
+<span class="kw">if</span> (<span class="kw">$conn</span>-><span class="fn">connect_error</span>) <span class="kw">die</span>(<span class="str">"Connection failed"</span>);
+
+<span class="cm">// READ (Select)</span>
+<span class="kw">$result</span> = <span class="kw">$conn</span>-><span class="fn">query</span>(<span class="str">"SELECT * FROM users"</span>);
+<span class="kw">while</span> (<span class="kw">$row</span> = <span class="kw">$result</span>-><span class="fn">fetch_assoc</span>()) {
+  <span class="kw">echo</span> <span class="kw">$row</span>[<span class="str">'name'</span>];
+}
+
+<span class="cm">// CREATE (Insert) — safe with prepared statement</span>
+<span class="kw">$stmt</span> = <span class="kw">$conn</span>-><span class="fn">prepare</span>(<span class="str">"INSERT INTO users(name) VALUES(?)"</span>);
+<span class="kw">$stmt</span>-><span class="fn">bind_param</span>(<span class="str">"s"</span>, <span class="kw">$name</span>);
+<span class="kw">$stmt</span>-><span class="fn">execute</span>();</div>
+  <div class="ar-box"><div class="ar-label">Arabic</div>للاتصال بقاعدة البيانات نستخدم <strong>mysqli</strong> أو PDO. CRUD = Create (INSERT)، Read (SELECT)، Update (UPDATE)، Delete (DELETE). دائماً استخدم <strong>Prepared Statements</strong> لمنع SQL Injection.</div>
+</div>
+
+<hr class="div">
+
+<!-- ══════════════════════════════════════ C# ══════════════════ -->
+<div class="sec-header" id="csharp">
+  <div class="sec-icon" style="background:linear-gradient(135deg,#9b59b6,#6c3483);font-size:13px">C#</div>
+  <div class="sec-info">
+    <h2>C# &amp; OOP</h2>
+    <div class="ar">لغة C# والبرمجة كائنية التوجه</div>
+    <div class="desc">Variables · Data Types · Classes · OOP Principles: Encapsulation · Inheritance · Polymorphism · Abstraction</div>
+  </div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">Variables &amp; Data Types <span class="ar">المتغيرات وأنواع البيانات</span></div>
+    <div class="code"><span class="fn">int</span>    age    = <span class="num">25</span>;
+<span class="fn">double</span> gpa    = <span class="num">3.75</span>;
+<span class="fn">string</span> name   = <span class="str">"Ali"</span>;
+<span class="fn">bool</span>   active = <span class="kw">true</span>;
+<span class="fn">char</span>   grade  = <span class="str">'A'</span>;
+
+<span class="cm">// Type inference</span>
+<span class="kw">var</span> city = <span class="str">"Amman"</span>;  <span class="cm">// compiler infers string</span>
+
+<span class="cm">// Constants</span>
+<span class="kw">const double</span> PI = <span class="num">3.14159</span>;</div>
+    <div class="ar-box"><div class="ar-label">Arabic</div>C# لغة strongly-typed: يجب تحديد نوع المتغير. <strong>int</strong>: أعداد صحيحة. <strong>double</strong>: أعداد عشرية. <strong>string</strong>: نص. <strong>bool</strong>: صح أو خطأ. <strong>var</strong>: يستنتج النوع تلقائياً. <strong>const</strong>: قيمة ثابتة لا تتغير.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">If &amp; Loops <span class="ar">الشروط والحلقات</span></div>
+    <div class="code"><span class="cm">// If-else</span>
+<span class="kw">if</span> (age >= <span class="num">18</span>) {
+  <span class="fn">Console</span>.<span class="fn">WriteLine</span>(<span class="str">"Adult"</span>);
+} <span class="kw">else</span> {
+  <span class="fn">Console</span>.<span class="fn">WriteLine</span>(<span class="str">"Minor"</span>);
+}
+
+<span class="cm">// For loop</span>
+<span class="kw">for</span> (<span class="fn">int</span> i = <span class="num">0</span>; i &lt; <span class="num">5</span>; i++) { ... }
+
+<span class="cm">// While</span>
+<span class="kw">while</span> (i &lt; <span class="num">10</span>) { i++; }
+
+<span class="cm">// Foreach</span>
+<span class="kw">foreach</span> (<span class="kw">var</span> item <span class="kw">in</span> list) { ... }
+
+<span class="cm">// Switch</span>
+<span class="kw">switch</span> (grade) {
+  <span class="kw">case</span> <span class="str">'A'</span>: <span class="fn">Console</span>.<span class="fn">Write</span>(<span class="str">"Excellent"</span>); <span class="kw">break</span>;
+  <span class="kw">default</span>: <span class="fn">Console</span>.<span class="fn">Write</span>(<span class="str">"Other"</span>); <span class="kw">break</span>;
+}</div>
+    <div class="ar-box"><div class="ar-label">Arabic</div>الشروط والحلقات في C# مطابقة تقريباً للغات مثل Java. <strong>Console.WriteLine</strong>: للطباعة. <strong>foreach</strong>: مثالي للمرور على القوائم والمصفوفات.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">Classes &amp; Objects &mdash; الكلاسات والكائنات</div>
+  <div class="code"><span class="kw">public class</span> <span class="cl">Employee</span> {
+  <span class="cm">// Properties (Fields)</span>
+  <span class="kw">public</span> <span class="fn">string</span> Name  { <span class="kw">get</span>; <span class="kw">set</span>; }
+  <span class="kw">public</span> <span class="fn">double</span> Salary { <span class="kw">get</span>; <span class="kw">set</span>; }
+
+  <span class="cm">// Constructor</span>
+  <span class="kw">public</span> <span class="fn">Employee</span>(<span class="fn">string</span> name, <span class="fn">double</span> salary) {
+    Name = name; Salary = salary;
+  }
+
+  <span class="cm">// Method</span>
+  <span class="kw">public void</span> <span class="fn">PrintInfo</span>() {
+    <span class="fn">Console</span>.<span class="fn">WriteLine</span>($<span class="str">"Name: {Name}, Salary: {Salary}"</span>);
+  }
+}
+
+<span class="cm">// Create object</span>
+<span class="cl">Employee</span> emp = <span class="kw">new</span> <span class="cl">Employee</span>(<span class="str">"Ali"</span>, <span class="num">5000</span>);
+emp.<span class="fn">PrintInfo</span>();  <span class="cm">// Name: Ali, Salary: 5000</span></div>
+  <div class="ar-box"><div class="ar-label">Arabic</div><strong>Class</strong>: قالب أو مخطط لإنشاء كائنات. <strong>Object</strong>: نسخة من الـ Class. <strong>Constructor</strong>: دالة تُستدعى عند إنشاء الكائن لتهيئة قيمه. <strong>Method</strong>: دالة داخل الـ Class تحدد سلوكه. <strong>Property</strong>: خاصية تحفظ بيانات الكائن.</div>
+</div>
+
+<div class="card">
+  <div class="card-title">OOP Principles &mdash; مبادئ البرمجة كائنية التوجه</div>
+  <div class="g2">
+    <div class="hl">
+      <strong style="color:var(--red)">1. Encapsulation &mdash; التغليف</strong><br>
+      Hide internal data; expose only what's needed via <code>public</code> methods/properties. Protects object state.<br>
+      <span style="color:var(--muted);font-size:12px">Use <code>private</code> fields with <code>public</code> getters/setters.</span>
+    </div>
+    <div class="hl">
+      <strong style="color:var(--green)">2. Inheritance &mdash; الوراثة</strong><br>
+      A child class inherits properties and methods from a parent class. Promotes code reuse.<br>
+      <div class="code" style="margin-top:6px;font-size:11.5px"><span class="kw">class</span> <span class="cl">Manager</span> : <span class="cl">Employee</span> {
+  <span class="kw">public</span> <span class="fn">string</span> Department;
+}</div>
+    </div>
+    <div class="hl">
+      <strong style="color:var(--blue)">3. Polymorphism &mdash; تعدد الأشكال</strong><br>
+      Same method name, different behavior depending on the object type. Achieved via method <strong>overriding</strong> and <strong>overloading</strong>.<br>
+      <span style="color:var(--muted);font-size:12px">virtual + override keywords in C#.</span>
+    </div>
+    <div class="hl">
+      <strong style="color:var(--purple)">4. Abstraction &mdash; التجريد</strong><br>
+      Hide complex implementation; show only essential features. Achieved with <strong>abstract classes</strong> and <strong>interfaces</strong>.<br>
+      <span style="color:var(--muted);font-size:12px">User uses <code>Start()</code> without knowing HOW it starts.</span>
+    </div>
+  </div>
+  <div class="ar-box"><div class="ar-label">Arabic</div>
+    <strong>Encapsulation (التغليف)</strong>: إخفاء التفاصيل الداخلية وإظهار ما يحتاجه المستخدم فقط — مثل ريموت التلفزيون: تضغط زر دون معرفة الدوائر الداخلية.<br>
+    <strong>Inheritance (الوراثة)</strong>: الكلاس الابن يرث خصائص ودوال الكلاس الأب — مثلاً Manager يرث من Employee.<br>
+    <strong>Polymorphism (تعدد الأشكال)</strong>: نفس اسم الدالة لكن سلوك مختلف حسب الكائن. مثلاً دالة <code>Speak()</code> تعمل بشكل مختلف في Dog وCat رغم اشتراكهما في Animal.<br>
+    <strong>Abstraction (التجريد)</strong>: إخفاء التعقيد وإظهار الجوهر فقط — مثل قيادة السيارة: تستخدم المقود دون معرفة كيفية عمل المحرك.
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- ══════════════════════════════════════ SOFTWARE ENG ══════════ -->
+<div class="sec-header" id="swe">
+  <div class="sec-icon" style="font-size:12px;background:linear-gradient(135deg,#1a6b3a,#0d4024)">SWE</div>
+  <div class="sec-info">
+    <h2>Software Engineering</h2>
+    <div class="ar">هندسة البرمجيات</div>
+    <div class="desc">SDLC · Agile · Scrum · Testing · UML · MVC</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">SDLC &mdash; Software Development Life Cycle <span class="ar">دورة حياة تطوير البرمجيات</span></div>
+  <div class="flow">
+    <div class="fbox r">1. Planning<br><small style="color:var(--muted);font-size:11px">التخطيط</small></div>
+    <div class="arrow">&rarr;</div>
+    <div class="fbox r">2. Analysis<br><small style="color:var(--muted);font-size:11px">التحليل</small></div>
+    <div class="arrow">&rarr;</div>
+    <div class="fbox r">3. Design<br><small style="color:var(--muted);font-size:11px">التصميم</small></div>
+    <div class="arrow">&rarr;</div>
+    <div class="fbox r">4. Implementation<br><small style="color:var(--muted);font-size:11px">التطوير</small></div>
+    <div class="arrow">&rarr;</div>
+    <div class="fbox r">5. Testing<br><small style="color:var(--muted);font-size:11px">الاختبار</small></div>
+    <div class="arrow">&rarr;</div>
+    <div class="fbox r">6. Deployment<br><small style="color:var(--muted);font-size:11px">النشر</small></div>
+    <div class="arrow">&rarr;</div>
+    <div class="fbox r">7. Maintenance<br><small style="color:var(--muted);font-size:11px">الصيانة</small></div>
+  </div>
+  <div class="ar-box"><div class="ar-label">Arabic</div>SDLC هو المنهجية التي نتبعها لتطوير البرامج. كل مرحلة لها مخرجات: التخطيط (نطاق المشروع)، التحليل (متطلبات النظام)، التصميم (الهيكل والواجهات)، التطوير (كتابة الكود)، الاختبار (التأكد من العمل)، النشر (تسليم العميل)، الصيانة (التحديثات والإصلاحات).</div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">Agile vs Waterfall <span class="ar">المنهجيات</span></div>
+    <div class="tw"><table>
+      <thead><tr><th>Feature</th><th>Waterfall</th><th>Agile</th></tr></thead>
+      <tbody>
+        <tr><td>Approach</td><td>Sequential, one phase at a time</td><td>Iterative, incremental sprints</td></tr>
+        <tr><td>Flexibility</td><td style="color:var(--red3)">Rigid</td><td style="color:var(--green)">Highly flexible</td></tr>
+        <tr><td>Customer</td><td>Involved at start &amp; end</td><td>Involved throughout</td></tr>
+        <tr><td>Delivery</td><td>One final delivery</td><td>Frequent small deliveries</td></tr>
+        <tr><td>Best for</td><td>Fixed, clear requirements</td><td>Changing requirements</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ar-box"><div class="ar-label">Arabic</div><strong>Waterfall</strong>: خطي — تنتهي من مرحلة قبل الدخول للتالية. مناسب للمشاريع ذات المتطلبات الثابتة. <strong>Agile</strong>: تكراري — تطوير على دورات قصيرة (Sprints) مع مراجعة مستمرة. مناسب للمشاريع التي تتغير متطلباتها.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Scrum Framework <span class="ar">إطار عمل Scrum</span></div>
+    <p><strong>Scrum</strong> is an Agile framework with defined roles and ceremonies:</p>
+    <ul>
+      <li><strong>Sprint:</strong> 2-4 week development cycle</li>
+      <li><strong>Product Owner:</strong> defines requirements (backlog)</li>
+      <li><strong>Scrum Master:</strong> facilitates the team</li>
+      <li><strong>Dev Team:</strong> builds the product</li>
+      <li><strong>Daily Standup:</strong> 15-min daily meeting</li>
+      <li><strong>Sprint Review:</strong> demo at end of sprint</li>
+      <li><strong>Retrospective:</strong> improve next sprint</li>
+    </ul>
+    <div class="ar-box"><div class="ar-label">Arabic</div>Scrum هو أشهر إطار عمل Agile. العمل يُقسم لـ Sprints (دورات 2-4 أسابيع). الفريق يلتقي يومياً 15 دقيقة (Standup). في نهاية كل Sprint يعرضون ما أنجزوه للعميل.</div>
+  </div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">Testing Types <span class="ar">أنواع الاختبار</span></div>
+    <div class="tw"><table>
+      <thead><tr><th>Type</th><th>Tests What</th><th>بالعربي</th></tr></thead>
+      <tbody>
+        <tr><td>Unit Testing</td><td>Individual functions/methods in isolation</td><td>اختبار الدوال منفردة</td></tr>
+        <tr><td>Integration Testing</td><td>How modules work together</td><td>اختبار تكامل الوحدات</td></tr>
+        <tr><td>System Testing</td><td>Complete system as a whole</td><td>اختبار النظام كاملاً</td></tr>
+        <tr><td>UAT</td><td>User Acceptance — meets requirements?</td><td>قبول المستخدم للنظام</td></tr>
+        <tr><td>Regression</td><td>Ensures new code didn't break old features</td><td>التأكد أن التغييرات لم تكسر شيئاً</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ar-box"><div class="ar-label">Arabic</div>الاختبار مرحلة حيوية في SDLC. <strong>Unit</strong>: اختبر كل وحدة صغيرة. <strong>Integration</strong>: اختبر كيف تعمل الوحدات مع بعض. <strong>UAT</strong>: المستخدم النهائي يختبر أن النظام يلبي احتياجاته.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">UML &amp; MVC <span class="ar">مخططات ونمط التصميم</span></div>
+    <p><strong>UML (Unified Modeling Language):</strong> Visual notation for system design.</p>
+    <ul>
+      <li><strong>Class Diagram:</strong> Shows classes and relationships</li>
+      <li><strong>Use Case Diagram:</strong> Shows actors and system functions</li>
+      <li><strong>Sequence Diagram:</strong> Shows how objects interact over time</li>
+    </ul>
+    <p style="margin-top:10px"><strong>MVC (Model-View-Controller):</strong></p>
+    <div class="flow" style="margin-top:8px">
+      <div class="fbox r">Model<br><small style="color:var(--muted);font-size:11px">Data &amp; Logic</small></div>
+      <div class="arrow">&harr;</div>
+      <div class="fbox r">Controller<br><small style="color:var(--muted);font-size:11px">Handles requests</small></div>
+      <div class="arrow">&harr;</div>
+      <div class="fbox r">View<br><small style="color:var(--muted);font-size:11px">UI / Display</small></div>
+    </div>
+    <div class="ar-box"><div class="ar-label">Arabic</div><strong>UML</strong>: لغة مخططات لتصميم الأنظمة قبل كتابة الكود. <strong>MVC</strong>: نمط تصميم يفصل البيانات (Model) عن المنطق (Controller) عن الواجهة (View). ASP.NET يعتمد على MVC.</div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- ══════════════════════════════════════ ABILITIES ══════════════ -->
+<div class="sec-header" id="abilities">
+  <div class="sec-icon" style="font-size:12px;background:linear-gradient(135deg,#1a4b6b,#0d2840)">IQ</div>
+  <div class="sec-info">
+    <h2>General Abilities &amp; Language Skills</h2>
+    <div class="ar">القدرات العامة والمهارات اللغوية</div>
+    <div class="desc">Logical Reasoning · Math · Arabic Grammar · English Vocabulary</div>
+  </div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">Logical Reasoning &mdash; التفكير المنطقي</div>
+    <p><strong>Pattern Recognition:</strong> Find the next number or shape in a sequence.</p>
+    <div class="note"><div class="note-lbl">Example</div>2, 4, 8, 16, __ &nbsp;&rarr;&nbsp; <span class="ans">32</span> (multiply by 2 each time)<br>1, 4, 9, 16, 25, __ &nbsp;&rarr;&nbsp; <span class="ans">36</span> (perfect squares: 6²)<br>A is taller than B. B is taller than C. Is A taller than C? &nbsp;&rarr;&nbsp; <span class="ans">Yes</span> (transitive relation)</div>
+    <p style="margin-top:10px"><strong>Key Reasoning Types:</strong></p>
+    <ul>
+      <li><strong>Deductive:</strong> From general to specific (All humans die → Socrates is human → Socrates will die)</li>
+      <li><strong>Inductive:</strong> From specific to general (pattern from examples)</li>
+      <li><strong>Analogical:</strong> A:B :: C:D (Doctor:Hospital :: Teacher:?School)</li>
+    </ul>
+    <div class="ar-box"><div class="ar-label">Arabic</div>أسئلة التفكير المنطقي تشمل: تسلسل الأرقام (ايجاد القاعدة والرقم التالي)، الاستنتاج المنطقي (إذا A أكبر من B وB أكبر من C فـ A أكبر من C)، التشابه (طبيب:مستشفى = معلم:مدرسة)، وتحليل الأنماط.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Basic Math &mdash; الرياضيات الأساسية</div>
+    <div class="note"><div class="note-lbl">Key Topics</div>
+      <strong>Percentages:</strong> 30% of 200 = 200 × 0.30 = <span class="ans">60</span><br>
+      <strong>Ratios:</strong> 3:4 means for every 3 there are 4<br>
+      <strong>Averages:</strong> (2+4+6+8) ÷ 4 = 20 ÷ 4 = <span class="ans">5</span><br>
+      <strong>Speed/Distance:</strong> D = S × T &nbsp;|&nbsp; 60km/h for 2h = <span class="ans">120km</span><br>
+      <strong>Algebra:</strong> 3x + 6 = 15 → 3x = 9 → x = <span class="ans">3</span>
+    </div>
+    <p><strong>Number properties to know:</strong></p>
+    <ul>
+      <li>Prime numbers: 2, 3, 5, 7, 11, 13, 17, 19, 23...</li>
+      <li>LCM / GCD operations</li>
+      <li>Fractions: addition, subtraction, multiplication, division</li>
+    </ul>
+    <div class="ar-box"><div class="ar-label">Arabic</div>الرياضيات في الكفايات تشمل: النسب المئوية (% من رقم)، النسب والتناسب، الأوساط الحسابية، مسائل السرعة والمسافة، والجبر الأساسي. مثال: إذا 30% من راتب = 600 ريال، فالراتب الكامل = 600 ÷ 0.30 = 2000 ريال.</div>
+  </div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">Arabic Grammar Basics &mdash; قواعد اللغة العربية</div>
+    <div class="tw"><table>
+      <thead><tr><th>Topic</th><th>Concept</th></tr></thead>
+      <tbody>
+        <tr><td>المبتدأ والخبر</td><td>The subject and predicate of a nominal sentence</td></tr>
+        <tr><td>الفاعل والمفعول به</td><td>Subject (doer) and Object (receiver of action)</td></tr>
+        <tr><td>الإعراب</td><td>Case endings: رفع، نصب، جر، جزم</td></tr>
+        <tr><td>التذكير والتأنيث</td><td>Masculine vs Feminine nouns and their agreement</td></tr>
+        <tr><td>المفرد والمثنى والجمع</td><td>Singular, Dual, Plural forms</td></tr>
+        <tr><td>الفعل الماضي والمضارع والأمر</td><td>Past, Present, Imperative verb tenses</td></tr>
+        <tr><td>حروف الجر</td><td>Prepositions: في، على، من، إلى، عن، مع</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ar-box"><div class="ar-label">Arabic</div>ركز على: إعراب الجمل (رفع نصب جر)، الفرق بين المبتدأ والخبر، تصريف الأفعال، علامات التأنيث (التاء المربوطة)، وقواعد الهمزة. أسئلة قد تطلب منك تحديد الخطأ النحوي في جملة أو إكمال جملة ناقصة.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">English Skills &mdash; المهارات الإنجليزية</div>
+    <div class="tw"><table>
+      <thead><tr><th>Area</th><th>Key Points</th></tr></thead>
+      <tbody>
+        <tr><td>Tenses</td><td>Simple Present/Past/Future; Present Perfect (have/has + V3); Continuous forms</td></tr>
+        <tr><td>Articles</td><td>a (first mention), an (before vowel), the (specific/known)</td></tr>
+        <tr><td>Prepositions</td><td>in (inside), on (surface), at (point), since/for (time)</td></tr>
+        <tr><td>Vocabulary</td><td>Synonyms, antonyms, word meaning in context</td></tr>
+        <tr><td>Sentence Structure</td><td>Subject + Verb + Object; Active vs Passive voice</td></tr>
+        <tr><td>Reading Comprehension</td><td>Main idea, inferred meaning, specific details</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ar-box"><div class="ar-label">Arabic</div>ركز على: أزمنة الأفعال (خاصة Present Perfect)، المقالات a/an/the، حروف الجر (in/on/at)، المفردات والمرادفات، والجملة الفعلية (فاعل + فعل + مفعول). تحقق من الفرق بين Active وPassive voice (She wrote the book / The book was written).</div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- ══════════════════════════════════════ FINAL REVIEW ══════════ -->
+<div class="final" id="review">
+  <h2>&#x1F3C6; Complete Quick Review &mdash; All Sections
+    <span class="ar">المراجعة الشاملة النهائية لكل الأقسام</span>
+  </h2>
+  <div class="tw"><table>
+    <thead><tr><th>Topic</th><th>Must Know</th><th>بالعربي</th></tr></thead>
+    <tbody>
+      <tr><td>SQL SELECT</td><td>SELECT cols FROM table WHERE cond ORDER BY col GROUP BY col HAVING cond</td><td>الاسترجاع مع الفلترة والترتيب والتجميع</td></tr>
+      <tr><td>SQL Joins</td><td>INNER=both match; LEFT=all left+match right; RIGHT=all right+match left</td><td>INNER: تطابق كامل. LEFT: كل اليسار</td></tr>
+      <tr><td>Keys</td><td>PK = unique identifier, NOT NULL; FK = references PK of another table</td><td>PK: مفتاح فريد. FK: يربط جدولين</td></tr>
+      <tr><td>Normalization</td><td>1NF: atomic values; 2NF: no partial dep; 3NF: no transitive dep</td><td>تنظيم الجداول لتقليل التكرار</td></tr>
+      <tr><td>Stored Proc</td><td>CREATE PROCEDURE name @param AS BEGIN...END; EXEC name @param=value</td><td>أوامر SQL محفوظة قابلة لإعادة الاستخدام</td></tr>
+      <tr><td>OSI Model</td><td>7 layers: Physical→DataLink→Network→Transport→Session→Presentation→Application</td><td>7 طبقات من الفيزيائية للتطبيقية</td></tr>
+      <tr><td>TCP vs UDP</td><td>TCP: reliable, ordered, slower | UDP: fast, unreliable, no order</td><td>TCP موثوق، UDP سريع</td></tr>
+      <tr><td>Ports</td><td>HTTP=80, HTTPS=443, FTP=21, SSH=22, DNS=53, SMTP=25</td><td>أرقام المنافذ الشائعة</td></tr>
+      <tr><td>Router/Switch</td><td>Switch=Layer2=MAC; Router=Layer3=IP; Hub=Layer1=broadcast all</td><td>Switch يعمل بـ MAC. Router يعمل بـ IP</td></tr>
+      <tr><td>Auth vs Authz</td><td>Authentication=WHO you are; Authorization=WHAT you can do</td><td>التحقق من الهوية ثم تحديد الصلاحية</td></tr>
+      <tr><td>Encryption</td><td>Encryption: reversible (AES, RSA); Hashing: one-way (SHA, bcrypt)</td><td>تشفير قابل للعكس. Hashing لا يُعكس</td></tr>
+      <tr><td>SQL Injection</td><td>Attacker injects SQL via input → use Parameterized Queries</td><td>حقن SQL خبيث → الحل: Prepared Statements</td></tr>
+      <tr><td>CIA Triad</td><td>Confidentiality + Integrity + Availability</td><td>السرية + النزاهة + التوفر</td></tr>
+      <tr><td>PHP Variables</td><td>$var = value; echo; GET($_GET)/POST($_POST); session_start(); setcookie()</td><td>المتغيرات تبدأ بـ $</td></tr>
+      <tr><td>GET vs POST</td><td>GET: data in URL, visible; POST: hidden in body, secure for sensitive data</td><td>GET في الـ URL. POST مخفي وأكثر أماناً</td></tr>
+      <tr><td>OOP C#</td><td>Encapsulation(hide data) Inheritance(extend class) Polymorphism(different behavior) Abstraction(hide complexity)</td><td>التغليف الوراثة تعدد الأشكال التجريد</td></tr>
+      <tr><td>SDLC</td><td>Planning→Analysis→Design→Implementation→Testing→Deployment→Maintenance</td><td>7 مراحل تطوير البرمجيات</td></tr>
+      <tr><td>Agile/Scrum</td><td>Iterative sprints; Product Owner; Scrum Master; Daily Standup; Sprint Review</td><td>تطوير تكراري بدورات قصيرة</td></tr>
+      <tr><td>MVC</td><td>Model(data) + View(UI) + Controller(logic) = separated concerns</td><td>فصل البيانات عن الواجهة عن المنطق</td></tr>
+      <tr><td>Testing</td><td>Unit→Integration→System→UAT→Regression</td><td>أنواع الاختبار من الصغير للكبير</td></tr>
+    </tbody>
+  </table></div>
+
+  <div style="margin-top:28px">
+    <div style="font-family:Orbitron,sans-serif;font-size:.7rem;letter-spacing:2px;color:var(--red);text-transform:uppercase;margin-bottom:16px">Top Exam Questions &mdash; أبرز أسئلة الامتحان</div>
+    <div class="exam-q">
+      <div class="q-lbl">Q1</div>
+      What is the difference between INNER JOIN and LEFT JOIN?<br>
+      <span class="ans">Answer:</span> INNER JOIN returns only rows with matching values in BOTH tables. LEFT JOIN returns ALL rows from the left table and matching rows from the right table (NULL if no match).
+      <div class="ar-box" style="margin-top:8px"><div class="ar-label">Arabic</div>INNER JOIN: يجلب فقط الصفوف التي لها تطابق في كلا الجدولين. LEFT JOIN: يجلب كل صفوف الجدول الأيسر بغض النظر عن التطابق، والصفوف غير المتطابقة تظهر NULL من الجدول الأيمن.</div>
+    </div>
+    <div class="exam-q">
+      <div class="q-lbl">Q2</div>
+      What are the 4 OOP principles? Briefly explain each.<br>
+      <span class="ans">Answer:</span> Encapsulation (hide internal data), Inheritance (child inherits from parent), Polymorphism (same method, different behavior), Abstraction (hide complexity, show essentials).
+      <div class="ar-box" style="margin-top:8px"><div class="ar-label">Arabic</div>التغليف: إخفاء البيانات. الوراثة: الابن يرث من الأب. تعدد الأشكال: نفس الاسم سلوك مختلف. التجريد: إخفاء التعقيد وإظهار الجوهر.</div>
+    </div>
+    <div class="exam-q">
+      <div class="q-lbl">Q3</div>
+      What is SQL Injection and how do you prevent it?<br>
+      <span class="ans">Answer:</span> SQL Injection is when an attacker inserts malicious SQL code into input fields to manipulate the database. Prevention: Always use parameterized queries / prepared statements — NEVER concatenate user input directly into SQL strings.
+      <div class="ar-box" style="margin-top:8px"><div class="ar-label">Arabic</div>حقن SQL: المهاجم يدخل كود SQL خبيث في حقول الإدخال. الحل: استخدام Parameterized Queries دائماً ولا تدمج نص المستخدم مباشرة في الاستعلام.</div>
+    </div>
+    <div class="exam-q">
+      <div class="q-lbl">Q4</div>
+      Explain the difference between Authentication and Authorization with examples.<br>
+      <span class="ans">Answer:</span> Authentication verifies your identity (who are you? → login with username/password). Authorization determines your permissions (what can you do? → admin can delete, user can only read).
+      <div class="ar-box" style="margin-top:8px"><div class="ar-label">Arabic</div>التحقق (Authentication): من أنت؟ مثل تسجيل الدخول بالإيميل وكلمة المرور. التفويض (Authorization): ماذا يحق لك؟ مثل أن المدير يستطيع حذف المستخدمين لكن الموظف العادي لا يستطيع.</div>
+    </div>
+    <div class="exam-q">
+      <div class="q-lbl">Q5</div>
+      What is the OSI model? Name all 7 layers in order.<br>
+      <span class="ans">Answer:</span> The OSI model divides network communication into 7 layers: (1) Physical, (2) Data Link, (3) Network, (4) Transport, (5) Session, (6) Presentation, (7) Application. Mnemonic: "Please Do Not Throw Sausage Pizza Away"
+      <div class="ar-box" style="margin-top:8px"><div class="ar-label">Arabic</div>نموذج OSI يقسم الاتصال لـ 7 طبقات: 1-Physical (بتات)، 2-DataLink (إطارات+MAC)، 3-Network (حزم+IP)، 4-Transport (TCP/UDP)، 5-Session (جلسات)، 6-Presentation (تشفير+ضغط)، 7-Application (تطبيقات المستخدم).</div>
+    </div>
+  </div>
+</div>
+
+<p style="text-align:center;color:var(--muted2);font-size:12px;margin-top:40px;font-family:Orbitron,sans-serif;letter-spacing:2px">KAFAYAT EXAM STUDY GUIDE &mdash; GOOD LUCK &#x1F3C6;</p>
+</div>
+
+<script>
+// Highlight active nav on scroll
+const sections = document.querySelectorAll('[id]');
+const navLinks = document.querySelectorAll('.sticky-nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+// Animate progress bars on load
+document.querySelectorAll('.progress-fill').forEach(bar => {
+  const w = bar.style.width;
+  bar.style.width = '0';
+  setTimeout(() => { bar.style.width = w; }, 300);
+});
+</script>
+</body>
+</html>
