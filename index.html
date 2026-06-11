@@ -658,6 +658,91 @@
       transform: translateX(-4px);
     }
 
+
+
+    /* ══════════════════════════════════════
+   EXAM CARDS THEMES
+══════════════════════════════════════ */
+    .exam-section {
+      margin-top: -22px;
+      margin-bottom: 60px;
+    }
+
+    .exam-card-cs {
+      --exam-main: #4fd8ff;
+      --exam-main2: #86efff;
+      --exam-dim: rgba(79, 216, 255, .09);
+      --exam-border: rgba(79, 216, 255, .26);
+      --exam-glow: rgba(79, 216, 255, .32);
+    }
+
+    .exam-card-edu {
+      --exam-main: #d7dce2;
+      --exam-main2: #f1f3f5;
+      --exam-dim: rgba(210, 214, 220, .08);
+      --exam-border: rgba(210, 214, 220, .24);
+      --exam-glow: rgba(210, 214, 220, .22);
+    }
+
+    .resource-card.exam-card-cs,
+    .resource-card.exam-card-edu {
+      border-color: var(--exam-border);
+      background:
+        radial-gradient(circle at 80% 0%, var(--exam-dim), transparent 40%),
+        linear-gradient(145deg, rgba(7, 12, 18, .96), rgba(15, 17, 22, .94));
+    }
+
+    .resource-card.exam-card-cs:hover,
+    .resource-card.exam-card-edu:hover {
+      border-color: var(--exam-main);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .62), 0 0 42px var(--exam-glow);
+    }
+
+    .exam-card-cs .card-glow,
+    .exam-card-edu .card-glow {
+      background: radial-gradient(circle, var(--exam-glow), transparent 70%);
+    }
+
+    .exam-card-cs .card-tag,
+    .exam-card-edu .card-tag {
+      background: var(--exam-dim);
+      color: var(--exam-main2);
+      border: 1px solid var(--exam-border);
+    }
+
+    .exam-card-cs .card-tag-dot,
+    .exam-card-edu .card-tag-dot,
+    .exam-card-cs .feat-dot,
+    .exam-card-edu .feat-dot {
+      background: var(--exam-main);
+      box-shadow: 0 0 10px var(--exam-glow);
+    }
+
+    .exam-card-cs .card-icon,
+    .exam-card-edu .card-icon {
+      background: var(--exam-dim);
+      border: 1px solid var(--exam-border);
+      box-shadow: 0 0 22px var(--exam-glow);
+    }
+
+    .exam-card-cs .card-en-title,
+    .exam-card-edu .card-en-title {
+      color: var(--exam-main);
+    }
+
+    .exam-card-cs .card-cta,
+    .exam-card-edu .card-cta {
+      background: linear-gradient(135deg, var(--exam-main), var(--exam-main2));
+      color: #05070a;
+      box-shadow: 0 4px 22px var(--exam-glow);
+    }
+
+    .exam-card-cs .card-cta:hover,
+    .exam-card-edu .card-cta:hover {
+      box-shadow: 0 7px 34px var(--exam-glow);
+      transform: translateY(-1px);
+    }
+
     /* ══════════════════════════════════════
    HOW TO USE SECTION
 ══════════════════════════════════════ */
@@ -1016,6 +1101,85 @@
           <a href="competency_exam_guide.html" class="card-cta">
             <span class="cta-arrow">←</span>
             افتح دليل الدراسة
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- ══════ INTERACTIVE EXAMS ══════ -->
+    <div class="sec-title exam-section">
+      <div class="sec-title-line"></div>
+      <div class="sec-title-text">الامتحانات التفاعلية</div>
+      <div class="sec-title-line"></div>
+    </div>
+
+    <div class="cards-grid">
+
+      <!-- Card 3: CS Exam -->
+      <div class="resource-card exam-card-cs">
+        <div class="card-glow"></div>
+        <div class="card-top">
+          <div class="card-tag">
+            <span class="card-tag-dot"></span>
+            COMPUTER SCIENCE EXAM
+          </div>
+          <div class="card-icon-wrap">
+            <div class="card-icon">💻</div>
+            <div class="card-title-wrap">
+              <div class="card-title">امتحان الحاسوب</div>
+              <div class="card-en-title">CS Interactive Exam</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">
+            صفحة أسئلة تفاعلية للحاسوب بثيم أزرق سماوي، تعرض الإجابة الصحيحة فورًا مع شرح مبسط وسكور مباشر لمتابعة تقدمك.
+          </p>
+          <ul class="card-features">
+            <li><span class="feat-dot"></span>1712 سؤال حاسوب تفاعلي</li>
+            <li><span class="feat-dot"></span>تصحيح فوري مع إظهار الإجابة الصحيحة</li>
+            <li><span class="feat-dot"></span>شرح تحت كل سؤال بعد الإجابة</li>
+            <li><span class="feat-dot"></span>فلترة للأسئلة الصحيحة والخاطئة وغير المجابة</li>
+          </ul>
+          <a href="CS.html" class="card-cta">
+            <span class="cta-arrow">←</span>
+            افتح امتحان الحاسوب
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4: Educational Competencies Exam -->
+      <div class="resource-card exam-card-edu">
+        <div class="card-glow"></div>
+        <div class="card-top">
+          <div class="card-tag">
+            <span class="card-tag-dot"></span>
+            EDUCATIONAL COMPETENCIES
+          </div>
+          <div class="card-icon-wrap">
+            <div class="card-icon">🎓</div>
+            <div class="card-title-wrap">
+              <div class="card-title">امتحان الكفاءات التربوية</div>
+              <div class="card-en-title">Educational Competencies Exam</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">
+            صفحة امتحان الكفاءات التربوية بثيم أسود ورمادي، تحتوي على أسئلة تفاعلية مع تصحيح مباشر وسكور كامل أثناء التدريب.
+          </p>
+          <ul class="card-features">
+            <li><span class="feat-dot"></span>690 سؤال كفاءات تربوية</li>
+            <li><span class="feat-dot"></span>إظهار الصح والخطأ مباشرة</li>
+            <li><span class="feat-dot"></span>عرض الإجابة الصحيحة مع الشرح</li>
+            <li><span class="feat-dot"></span>بحث وتصفية حسب حالة السؤال</li>
+          </ul>
+          <a href="Educational_competencies.html" class="card-cta">
+            <span class="cta-arrow">←</span>
+            افتح امتحان الكفاءات التربوية
           </a>
         </div>
       </div>
